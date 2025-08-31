@@ -1474,7 +1474,7 @@
 <body>
     <!-- 헤더 섹션 -->
     <header>
-        <div class="scroll-arrow">
+        <div class="scroll-arrow" onclick="scrollToMainContent()">
             <img width="24px" src="icon/chevron-double-down.svg" alt="아래로 스크롤" />
         </div>
     </header>
@@ -1959,6 +1959,36 @@
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;
             answer.classList.toggle('active');
+        }
+
+        // 스크롤 화살표 클릭 시 main-content로 부드럽게 스크롤
+        function scrollToMainContent() {
+            const mainContent = document.querySelector('.main-content');
+            if (mainContent) {
+                const targetPosition = mainContent.offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1500; // 3초로 늘림 (더 천천히)
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+
+                // 부드러운 이징 함수 (cubic-bezier)
+                function easeInOutCubic(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t + 2) + b;
+                }
+
+                requestAnimationFrame(animation);
+            }
         }
 
         // 스크롤 이벤트 리스너
