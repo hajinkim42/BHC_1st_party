@@ -1815,12 +1815,28 @@
     </footer>
 
     <script>
-        var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
-            zoom: 10
+        const lat = 37.574405;
+        const lng = 127.090106;
+
+        const mapOptions = {
+            center: new naver.maps.LatLng(lat, lng),
+            zoom: 15,
+            draggable: false,
+            scrollwheel: false,
+            zoomControl: false,
+            mapDataControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            overviewMapControl: false,
         };
 
-        var map = new naver.maps.Map('map', mapOptions);
+        const map = new naver.maps.Map('map', mapOptions);
+
+        const marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(lat, lng),
+            map: map,
+        });
+
         </script>
     <script>
 
