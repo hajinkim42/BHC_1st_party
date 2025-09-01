@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=gdw5rjlw56"></script>
     <!-- <title>1주년 기념 행사 - 특별한 순간을 함께하세요</title> -->
     <style>
         * {
@@ -1609,9 +1610,12 @@
                         <span>용마폭포공원 주차장 이용</span>
                     </div>
                 </div>
-                <div class="map-placeholder fade-in delay-1">
+                <div class="map-placeholder fade-in delay-1" id="map" style="width:100%;height:400px;"></div>
+                <!-- <div class="map-placeholder fade-in delay-1">
                     🗺️ 지도가 여기에 표시됩니다
-                </div>
+                </div> -->
+
+
             </div>
         </section>
 
@@ -1811,6 +1815,16 @@
     </footer>
 
     <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+        </script>
+    <script>
+
+
         // 이미지 캐러셀 관련 변수
         let currentSlide = 0;
         const totalSlides = 10;
