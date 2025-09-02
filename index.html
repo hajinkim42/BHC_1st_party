@@ -501,12 +501,9 @@
 
         /* 오시는 길 */
         .location-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            text-align: center;
             padding: 30px 15px;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -537,6 +534,85 @@
             justify-content: center;
             color: #666;
             font-size: 1.1rem;
+        }
+
+
+
+        /* 주소 및 지도 앱 통합 스타일 */
+        .location-actions {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .location-actions-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .location-actions-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .action-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            padding: 15px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            min-width: 100px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .action-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .action-icon.copy-icon {
+            background: linear-gradient(45deg, #7EDDF2, #5BC0DE);
+        }
+
+        .action-icon.naver {
+            background: linear-gradient(45deg, #03c75a, #00d564);
+        }
+
+        .action-icon.kakao {
+            background: linear-gradient(45deg, #fee500, #ffd700);
+            color: #333;
+        }
+
+        .action-item:hover .action-icon {
+            transform: scale(1.1);
+        }
+
+        .action-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* 사진 캐러셀 */
@@ -1092,8 +1168,8 @@
             }
 
             .location-info {
-                grid-template-columns: 1fr;
-                gap: 25px;
+                max-width: 95%;
+                padding: 20px 10px;
             }
 
             .location-text h3 {
@@ -1102,6 +1178,36 @@
 
             .map-placeholder {
                 height: 250px;
+            }
+
+            /* 모바일 주소 및 지도 앱 스타일 */
+            .location-actions {
+                margin: 20px 0;
+            }
+
+            .location-actions-title {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .location-actions-grid {
+                gap: 15px;
+            }
+
+            .action-item {
+                padding: 12px;
+                min-width: 80px;
+            }
+
+            .action-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .action-item span {
+                font-size: 0.8rem;
             }
 
             .photo-carousel {
@@ -1303,12 +1409,47 @@
                 padding: 40px 15px;
             }
 
+            .location-info {
+                max-width: 95%;
+                padding: 15px 10px;
+            }
+
             .location-text h3 {
                 font-size: 1.3rem;
             }
 
             .map-placeholder {
                 height: 200px;
+            }
+
+            /* 작은 화면 주소 및 지도 앱 스타일 */
+            .location-actions {
+                margin: 15px 0;
+            }
+
+            .location-actions-title {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+
+            .location-actions-grid {
+                gap: 10px;
+            }
+
+            .action-item {
+                padding: 10px;
+                min-width: 70px;
+            }
+
+            .action-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+                margin-bottom: 6px;
+            }
+
+            .action-item span {
+                font-size: 0.75rem;
             }
 
             .photo-carousel {
@@ -1626,13 +1767,25 @@
                         <i class="scale-in delay-5">🚗</i>
                         <span>용마폭포공원 주차장 이용</span>
                     </div>
-                </div>
+                                        <!-- 주소 복사 및 지도 앱 링크 -->
+                    <div class="location-actions fade-in delay-5">
+                        <h4 class="location-actions-title">주소 및 지도</h4>
+                        <div class="location-actions-grid">
+                            <button class="action-item copy-address-btn" onclick="copyAddress()" title="주소를 클립보드에 복사">
+                                <div class="action-icon copy-icon">📋</div>
+                                <span>주소 복사</span>
+                            </button>
+                            <a href="https://naver.me/5oE4CwVK" target="_blank" class="action-item" title="네이버 지도에서 보기">
+                                <div class="action-icon naver">N</div>
+                                <span>네이버 지도</span>
+                            </a>
+                            <a href="https://place.map.kakao.com/10625168" target="_blank" class="action-item" title="카카오맵에서 보기">
+                                <div class="action-icon kakao">K</div>
+                                <span>카카오맵</span>
+                            </a>
+                        </div>
+                    </div>
                 <div class="map-placeholder fade-in delay-1" id="map" style="width:100%;height:400px;"></div>
-                <!-- <div class="map-placeholder fade-in delay-1">
-                    🗺️ 지도가 여기에 표시됩니다
-                </div> -->
-
-
             </div>
         </section>
 
@@ -2049,6 +2202,63 @@
 
                 requestAnimationFrame(animation);
             }
+        }
+
+        // 주소 복사 기능
+        function copyAddress() {
+            const address = "서울 중랑구 용마산로 250-12 용마폭포공원관리사무소";
+
+            // 클립보드에 복사
+            if (navigator.clipboard && window.isSecureContext) {
+                // 최신 브라우저용 Clipboard API
+                navigator.clipboard.writeText(address).then(() => {
+                    showCopySuccess();
+                }).catch(err => {
+                    console.error('클립보드 복사 실패:', err);
+                    fallbackCopyTextToClipboard(address);
+                });
+            } else {
+                // 구형 브라우저용 fallback
+                fallbackCopyTextToClipboard(address);
+            }
+        }
+
+        // 구형 브라우저용 클립보드 복사
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess();
+                }
+            } catch (err) {
+                console.error('클립보드 복사 실패:', err);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+                // 복사 성공 메시지 표시
+        function showCopySuccess() {
+            const btn = document.querySelector('.copy-address-btn');
+            const originalText = btn.innerHTML;
+
+            // 버튼 텍스트를 "복사 완료!"로 변경
+            btn.innerHTML = '<div class="action-icon copy-icon">✅</div><span>복사 완료!</span>';
+
+            // 2초 후 원래 텍스트로 복원
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+            }, 2000);
         }
 
         // 스크롤 이벤트 리스너
