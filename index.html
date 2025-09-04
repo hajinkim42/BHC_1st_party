@@ -188,31 +188,42 @@
 
         .overview-details {
             margin-top: 40px;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            width: 100vw;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
+            background-color: #e5f6fd;
+            padding: 40px 0;
         }
 
         .detail-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 8px;
         }
 
         .detail-label {
             font-size: 1rem;
-            color: #666;
-            font-weight: 600;
+            color: white;
+            background-color: #026c93;
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            min-width: 100px;
         }
 
         .detail-value {
             font-size: 1.3rem;
             color: #333;
-            font-weight: 700;
-            padding: 8px 20px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .overview-button {
@@ -1080,7 +1091,6 @@
             }
 
             .detail-value {
-                font-size: 1.1rem;
                 padding: 6px 16px;
             }
 
@@ -1331,7 +1341,6 @@
             }
 
             .detail-value {
-                font-size: 1rem;
                 padding: 5px 14px;
             }
 
@@ -1673,24 +1682,28 @@
 
                 <div class="overview-details fade-in delay-4">
                     <div class="detail-item">
-                        <span class="detail-label">참가 신청기간</span>
-                        <span class="detail-value">9월 3일 ~ 9월 27일</span>
+                        <span class="detail-label">행사 내용</span>
+                        <span class="detail-value" style="color: #eb3572">베하클 1주년 기념</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">행사일</span>
+                        <span class="detail-value">9월 28일 일요일</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">참여 인원</span>
-                        <span class="detail-value">선착순 80가족</span>
+                        <span class="detail-value">베하클 80가족</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">일시</span>
-                        <span class="detail-value">2025년 9월 28일 일요일 오전 8시 30분</span>
+                        <span class="detail-value">25년 9월 28일 일<span style="font-size: 1rem;">(오전 8:30)</span></span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">장소</span>
                         <span class="detail-value">용마폭포공원</span>
                     </div>
-                </div>
-                <div class="overview-button fade-in delay-5">
-                    <a href="#register" class="cta-button" onclick="alert('참가 신청 스마트스토어 링크로 연결될 예정입니다!')">참가 신청하기</a>
+                    <div class="overview-button fade-in delay-5">
+                        <a href="#register" class="cta-button" onclick="alert('참가 신청 스마트스토어 링크로 연결될 예정입니다!')">티켓 구매하기</a>
+                    </div>
                 </div>
             </div>
         </section>
