@@ -1888,51 +1888,53 @@
         </section>
 
 
-        <!-- 지난 1년간 사진들 -->
+        <!-- 함께 걸어온 1년 -->
         <section class="section">
             <h2 class="section-title fade-in">함께 걸어온 1년</h2>
             <div class="photo-carousel fade-in">
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=1" alt="개업 기념" class="carousel-image">
-                            <div class="carousel-caption">개업 기념</div>
+                            <img src="photo/photo1.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=2" alt="첫 모임" class="carousel-image">
-                            <div class="carousel-caption">첫 모임</div>
+                            <img src="photo/photo3.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=3" alt="특별 이벤트" class="carousel-image">
-                            <div class="carousel-caption">특별 이벤트</div>
+                            <img src="photo/photo4.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=4" alt="성장 과정" class="carousel-image">
-                            <div class="carousel-caption">성장 과정</div>
+                            <img src="photo/photo5.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=5" alt="협력 활동" class="carousel-image">
-                            <div class="carousel-caption">협력 활동</div>
+                            <img src="photo/photo7.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=6" alt="목표 달성" class="carousel-image">
-                            <div class="carousel-caption">목표 달성</div>
+                            <img src="photo/photo8.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=7" alt="함께한 시간" class="carousel-image">
-                            <div class="carousel-caption">함께한 시간</div>
+                            <img src="photo/photo9.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=8" alt="추억의 순간" class="carousel-image">
-                            <div class="carousel-caption">추억의 순간</div>
+                            <img src="photo/photo10.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=9" alt="성장의 기록" class="carousel-image">
-                            <div class="carousel-caption">성장의 기록</div>
+                            <img src="photo/photo11.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://picsum.photos/800/500?random=10" alt="미래의 꿈" class="carousel-image">
-                            <div class="carousel-caption">미래의 꿈</div>
+                            <img src="photo/photo12.JPG" alt="베하클 추억" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="photo/photo13.JPG" alt="베하클 추억" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="photo/photo14.JPG" alt="베하클 추억" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="photo/photo15.JPG" alt="베하클 추억" class="carousel-image">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="photo/photo16.jpg" alt="베하클 추억" class="carousel-image">
                         </div>
                     </div>
                 </div>
@@ -1949,6 +1951,10 @@
                     <span class="indicator" onclick="goToSlide(7)"></span>
                     <span class="indicator" onclick="goToSlide(8)"></span>
                     <span class="indicator" onclick="goToSlide(9)"></span>
+                    <span class="indicator" onclick="goToSlide(10)"></span>
+                    <span class="indicator" onclick="goToSlide(11)"></span>
+                    <span class="indicator" onclick="goToSlide(12)"></span>
+                    <span class="indicator" onclick="goToSlide(13)"></span>
                 </div>
             </div>
         </section>
@@ -2082,14 +2088,41 @@
 
         // 이미지 캐러셀 관련 변수
         let currentSlide = 0;
-        const totalSlides = 10;
         const carouselTrack = document.querySelector('.carousel-track');
         const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = carouselTrack ? carouselTrack.children.length : 0;
 
         // 캐러셀 슬라이드 변경
         function changeCarouselSlide(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            updateCarousel();
+            const newSlide = (currentSlide + direction + totalSlides) % totalSlides;
+
+            // 마지막에서 첫 번째로 가거나 첫 번째에서 마지막으로 갈 때
+            if ((currentSlide === totalSlides - 1 && direction === 1) ||
+                (currentSlide === 0 && direction === -1)) {
+                // transition 비활성화
+                if (carouselTrack) {
+                    carouselTrack.style.transition = 'none';
+                }
+
+                // 즉시 위치 변경
+                currentSlide = newSlide;
+                if (carouselTrack) {
+                    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
+
+                // 다음 프레임에서 transition 다시 활성화
+                requestAnimationFrame(() => {
+                    if (carouselTrack) {
+                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+                    }
+                });
+            } else {
+                // 일반적인 슬라이드 변경
+                currentSlide = newSlide;
+                updateCarousel();
+            }
+
+            updateIndicators();
         }
 
         // 특정 슬라이드로 이동
@@ -2103,8 +2136,11 @@
             if (carouselTrack) {
                 carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
             }
+            updateIndicators();
+        }
 
-            // 인디케이터 업데이트
+        // 인디케이터 업데이트
+        function updateIndicators() {
             indicators.forEach((indicator, index) => {
                 if (index === currentSlide) {
                     indicator.classList.add('active');
