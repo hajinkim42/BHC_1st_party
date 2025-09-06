@@ -300,6 +300,130 @@
             background: linear-gradient(45deg, #6BC8E0, #4AB0D0);
         }
 
+        /* 참가자 기념품 */
+        .gifts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gift-item {
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .gift-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: #7EDDF2;
+        }
+
+        .gift-image-wrapper {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-image {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+            line-height: 1.4;
+            font-family: 'NanumSquareNeo', sans-serif;
+        }
+
+        .gift-image-wrapper.coming-soon {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px dashed #7EDDF2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coming-soon-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #7EDDF2;
+            text-align: center;
+            line-height: 1.3;
+            font-family: 'NanumSquareNeo', sans-serif;
+        }
+
+        /* 1주년 기념 티셔츠 */
+        .tshirt-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .tshirt-image-wrapper {
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tshirt-image-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .tshirt-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .purchase-btn {
+            background: linear-gradient(45deg, #7EDDF2, #5BC0DE);
+            color: #333;
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            font-weight: 600;
+            font-family: 'NanumSquareNeo', sans-serif;
+        }
+
+        .purchase-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            background: linear-gradient(45deg, #6BC8E0, #4AB0D0);
+        }
+
         /* 숫자로 보는 베하클 */
         .stats-container {
             background: linear-gradient(135deg, #7EDDF2 0%, #04738C 100%);
@@ -1152,6 +1276,30 @@
                 font-size: 1.1rem;
             }
 
+            .purchase-btn {
+                padding: 15px 40px;
+                font-size: 1.1rem;
+            }
+
+            /* 기념품 모바일 스타일 */
+            .gifts-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .gift-item {
+                padding: 15px;
+            }
+
+            .gift-image-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+
+            .gift-title {
+                font-size: 1rem;
+            }
+
             /* 모바일 통계 스타일 */
             .stats-container {
                 padding: 60px 20px;
@@ -1404,6 +1552,25 @@
             .overview-button .cta-button {
                 padding: 12px 35px;
                 font-size: 1rem;
+            }
+
+            .purchase-btn {
+                padding: 12px 35px;
+                font-size: 1rem;
+            }
+
+            /* 기념품 작은 화면 스타일 */
+            .gifts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gift-item {
+                padding: 12px;
+            }
+
+            .gift-title {
+                font-size: 0.9rem;
             }
 
             /* 작은 화면 통계 스타일 */
@@ -1747,10 +1914,6 @@
                         <span class="detail-label">행사 내용</span>
                         <span class="detail-value" style="color: #eb3572">베하클 1주년 기념</span>
                     </div>
-                    <div class="detail-item fade-in delay-3">
-                        <span class="detail-label">행사일</span>
-                        <span class="detail-value">9월 28일 일요일</span>
-                    </div>
                     <div class="detail-item fade-in delay-4">
                         <span class="detail-label">참여 인원</span>
                         <span class="detail-value">베하클 80가족</span>
@@ -1855,6 +2018,68 @@
                             </a>
                         </div>
                     </div>
+            </div>
+        </section>
+
+        <!-- 참가자 기념품 -->
+        <section class="section">
+            <h2 class="section-title fade-in">참가자 기념품</h2>
+            <div class="gifts-container fade-in">
+                <div class="gifts-grid">
+                    <div class="gift-item fade-in delay-1">
+                        <div class="gift-image-wrapper">
+                            <img src="images/gift/badge.jpg" alt="완주 뱃지" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">완주 뱃지</h3>
+                    </div>
+                    <div class="gift-item fade-in delay-2">
+                        <div class="gift-image-wrapper">
+                            <img src="images/gift/hanky.jpg" alt="손수건" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">손수건</h3>
+                    </div>
+                    <div class="gift-item fade-in delay-3">
+                        <div class="gift-image-wrapper">
+                            <img src="images/gift/sausage.jpg" alt="목우촌 소세지" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">목우촌 소세지</h3>
+                    </div>
+                    <div class="gift-item fade-in delay-4">
+                        <div class="gift-image-wrapper">
+                            <img src="images/gift/jerky.jpg" alt="목우촌 육포" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">목우촌 생생육포</h3>
+                    </div>
+                    <!-- <div class="gift-item fade-in delay-5">
+                        <div class="gift-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop&crop=center" alt="블루마마 빨대컵" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">블루마마 빨대컵</h3>
+                    </div>
+                    <div class="gift-item fade-in delay-6">
+                        <div class="gift-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop&crop=center" alt="바이오더마 크림" class="gift-image">
+                        </div>
+                        <h3 class="gift-title">바이오더마 크림</h3>
+                    </div> -->
+                    <div class="gift-item fade-in delay-7">
+                        <div class="gift-image-wrapper coming-soon">
+                            <div class="coming-soon-text">추가 공개 예정</div>
+                        </div>
+                        <h3 class="gift-title">더 많은 기념품</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1주년 기념 티셔츠 -->
+        <section class="section">
+            <h2 class="section-title fade-in">1주년 기념 티셔츠</h2>
+            <div class="tshirt-container fade-in">
+                <div class="tshirt-image-wrapper">
+                    <img src="images/tshirts.jpg" alt="1주년 기념 티셔츠" class="tshirt-image">
+                </div>
+                <button class="purchase-btn fade-in delay-2" onclick="window.open('https://smartstore.naver.com/babyhikingclub/products/12340844290', '_blank')">구매하러 가기</button>
             </div>
         </section>
 
