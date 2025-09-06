@@ -21,6 +21,10 @@
     <meta name="twitter:image" content="images/og_banner.png">
 
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=gdw5rjlw56"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <!-- <title>1주년 기념 행사 - 특별한 순간을 함께하세요</title> -->
     <style>
         @font-face {
@@ -804,28 +808,17 @@
             font-weight: 500;
         }
 
-        /* 사진 캐러셀 */
+        /* Swiper 캐러셀 */
         .photo-carousel {
             position: relative;
             margin: 50px auto 0;
             max-width: 800px;
         }
 
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
+        .photo-swiper {
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            position: relative;
+            overflow: hidden;
         }
 
         .carousel-image {
@@ -835,73 +828,41 @@
             display: block;
         }
 
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+        /* Swiper 버튼 커스터마이징 */
+        .photo-swiper .swiper-button-next,
+        .photo-swiper .swiper-button-prev {
+            color: #7EDDF2;
             background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            border: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            z-index: 10;
+            margin-top: -25px;
         }
 
-        .carousel-btn:hover {
+        .photo-swiper .swiper-button-next:after,
+        .photo-swiper .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .photo-swiper .swiper-button-next:hover,
+        .photo-swiper .swiper-button-prev:hover {
             background: white;
-            transform: translateY(-50%) scale(1.1);
+            transform: scale(1.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .prev-btn {
-            left: 20px;
-        }
-
-        .next-btn {
-            right: 20px;
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .indicator {
+        /* Swiper 페이지네이션 커스터마이징 */
+        .photo-swiper .swiper-pagination-bullet {
+            background: rgba(126, 221, 242, 0.3);
+            opacity: 1;
             width: 12px;
             height: 12px;
-            border-radius: 50%;
-            background: rgba(126, 221, 242, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .indicator.active {
+        .photo-swiper .swiper-pagination-bullet-active {
             background: #7EDDF2;
             transform: scale(1.2);
-        }
-
-        .indicator:hover {
-            background: #7EDDF2;
-            transform: scale(1.1);
         }
 
         /* 이미지 모달 */
@@ -1426,16 +1387,15 @@
                 margin-top: 30px;
             }
 
-
-            .carousel-btn {
+            .photo-swiper .swiper-button-next,
+            .photo-swiper .swiper-button-prev {
                 width: 40px;
                 height: 40px;
-                font-size: 16px;
             }
 
-            .carousel-caption {
-                padding: 15px;
-                font-size: 1rem;
+            .photo-swiper .swiper-button-next:after,
+            .photo-swiper .swiper-button-prev:after {
+                font-size: 16px;
             }
 
             /* 모바일 모달 스타일 */
@@ -1690,16 +1650,15 @@
                 margin-top: 25px;
             }
 
-
-            .carousel-btn {
+            .photo-swiper .swiper-button-next,
+            .photo-swiper .swiper-button-prev {
                 width: 35px;
                 height: 35px;
-                font-size: 14px;
             }
 
-            .carousel-caption {
-                padding: 12px;
-                font-size: 0.9rem;
+            .photo-swiper .swiper-button-next:after,
+            .photo-swiper .swiper-button-prev:after {
+                font-size: 14px;
             }
 
             .registration-form {
@@ -2117,50 +2076,51 @@
         <section class="section">
             <h2 class="section-title fade-in">함께 걸어온 1년</h2>
             <div class="photo-carousel fade-in">
-                <div class="carousel-container">
-                    <div class="carousel-track">
-                        <div class="carousel-slide">
+                <!-- Swiper -->
+                <div class="swiper photo-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
                             <img src="photo/photo3.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo4.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo5.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo7.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo8.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo10.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo11.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo12.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo13.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo14.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo15.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
-                        <div class="carousel-slide">
+                        <div class="swiper-slide">
                             <img src="photo/photo16.jpg" alt="베하클 추억" class="carousel-image">
                         </div>
                     </div>
-                </div>
-                <button class="carousel-btn prev-btn" onclick="changeCarouselSlide(-1)">&#10094;</button>
-                <button class="carousel-btn next-btn" onclick="changeCarouselSlide(1)">&#10095;</button>
-                <div class="carousel-indicators" id="carousel-indicators">
-                    <!-- 인디케이터는 JavaScript에서 동적으로 생성됩니다 -->
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -2292,144 +2252,55 @@
     <script>
 
 
-        // 이미지 캐러셀 관련 변수
-        let currentSlide = 0;
-        const carouselTrack = document.querySelector('.carousel-track');
-        const indicatorsContainer = document.getElementById('carousel-indicators');
-        const totalSlides = carouselTrack ? carouselTrack.children.length : 0;
-        let indicators = [];
+        // Swiper 초기화
+        let photoSwiper;
 
-        // 인디케이터 동적 생성
-        function createIndicators() {
-            if (!indicatorsContainer || totalSlides === 0) return;
+        function initPhotoSwiper() {
+            photoSwiper = new Swiper('.photo-swiper', {
+                // 기본 설정
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
 
-            indicatorsContainer.innerHTML = '';
-            indicators = [];
+                // 네비게이션 버튼
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
 
-            for (let i = 0; i < totalSlides; i++) {
-                const indicator = document.createElement('span');
-                indicator.className = 'indicator';
-                indicator.onclick = () => goToSlide(i);
-                indicatorsContainer.appendChild(indicator);
-                indicators.push(indicator);
-            }
+                // 페이지네이션
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
 
-            // 첫 번째 인디케이터를 활성화
-            if (indicators.length > 0) {
-                indicators[0].classList.add('active');
-            }
-        }
+                // 효과 설정
+                effect: 'slide',
+                speed: 500,
 
-        // 캐러셀 슬라이드 변경
-        function changeCarouselSlide(direction) {
-            const newSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                // 터치 설정
+                touchRatio: 1,
+                touchAngle: 45,
+                grabCursor: true,
 
-            // 마지막에서 첫 번째로 가거나 첫 번째에서 마지막으로 갈 때
-            if ((currentSlide === totalSlides - 1 && direction === 1) ||
-                (currentSlide === 0 && direction === -1)) {
-                // transition 비활성화
-                if (carouselTrack) {
-                    carouselTrack.style.transition = 'none';
-                }
-
-                // 즉시 위치 변경
-                currentSlide = newSlide;
-                if (carouselTrack) {
-                    carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-                }
-
-                // 다음 프레임에서 transition 다시 활성화
-                requestAnimationFrame(() => {
-                    if (carouselTrack) {
-                        carouselTrack.style.transition = 'transform 0.5s ease-in-out';
+                // 반응형 설정
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    1024: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
                     }
-                });
-            } else {
-                // 일반적인 슬라이드 변경
-                currentSlide = newSlide;
-                updateCarousel();
-            }
-
-            updateIndicators();
-        }
-
-        // 특정 슬라이드로 이동
-        function goToSlide(index) {
-            if (index < 0 || index >= totalSlides) return;
-            currentSlide = index;
-            updateCarousel();
-        }
-
-        // 캐러셀 업데이트
-        function updateCarousel() {
-            if (carouselTrack) {
-                carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
-            updateIndicators();
-        }
-
-        // 인디케이터 업데이트
-        function updateIndicators() {
-            if (!indicators || indicators.length === 0) return;
-
-            indicators.forEach((indicator, index) => {
-                if (index === currentSlide) {
-                    indicator.classList.add('active');
-                } else {
-                    indicator.classList.remove('active');
                 }
             });
-        }
-
-        // 자동 슬라이드 (5초마다)
-        function autoSlide() {
-            changeCarouselSlide(1);
-        }
-
-        // 자동 슬라이드 시작
-        let autoSlideInterval = setInterval(autoSlide, 5000);
-
-        // 마우스 호버 시 자동 슬라이드 일시정지
-        const carousel = document.querySelector('.photo-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
-
-            carousel.addEventListener('mouseleave', () => {
-                autoSlideInterval = setInterval(autoSlide, 5000);
-            });
-        }
-
-        // 터치 스와이프 기능 (캐러셀용)
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        const carouselContainer = document.querySelector('.carousel-container');
-        if (carouselContainer) {
-            carouselContainer.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            carouselContainer.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleCarouselSwipe();
-            });
-        }
-
-        function handleCarouselSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // 왼쪽으로 스와이프 - 다음 슬라이드
-                    changeCarouselSlide(1);
-                } else {
-                    // 오른쪽으로 스와이프 - 이전 슬라이드
-                    changeCarouselSlide(-1);
-                }
-            }
         }
 
         // 스크롤 애니메이션
@@ -2603,8 +2474,11 @@
         // 페이지 로드 시 초기 애니메이션
         window.addEventListener('load', animateOnScroll);
 
-        // 페이지 로드 시 캐러셀 인디케이터 초기화
-        window.addEventListener('load', createIndicators);
+        // 페이지 로드 시 Swiper 초기화
+        window.addEventListener('load', initPhotoSwiper);
     </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
