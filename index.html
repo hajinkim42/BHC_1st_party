@@ -1895,9 +1895,6 @@
                 <div class="carousel-container">
                     <div class="carousel-track">
                         <div class="carousel-slide">
-                            <img src="photo/photo1.JPG" alt="베하클 추억" class="carousel-image">
-                        </div>
-                        <div class="carousel-slide">
                             <img src="photo/photo3.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
@@ -1911,9 +1908,6 @@
                         </div>
                         <div class="carousel-slide">
                             <img src="photo/photo8.JPG" alt="베하클 추억" class="carousel-image">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="photo/photo9.JPG" alt="베하클 추억" class="carousel-image">
                         </div>
                         <div class="carousel-slide">
                             <img src="photo/photo10.JPG" alt="베하클 추억" class="carousel-image">
@@ -1940,21 +1934,8 @@
                 </div>
                 <button class="carousel-btn prev-btn" onclick="changeCarouselSlide(-1)">&#10094;</button>
                 <button class="carousel-btn next-btn" onclick="changeCarouselSlide(1)">&#10095;</button>
-                <div class="carousel-indicators">
-                    <span class="indicator active" onclick="goToSlide(0)"></span>
-                    <span class="indicator" onclick="goToSlide(1)"></span>
-                    <span class="indicator" onclick="goToSlide(2)"></span>
-                    <span class="indicator" onclick="goToSlide(3)"></span>
-                    <span class="indicator" onclick="goToSlide(4)"></span>
-                    <span class="indicator" onclick="goToSlide(5)"></span>
-                    <span class="indicator" onclick="goToSlide(6)"></span>
-                    <span class="indicator" onclick="goToSlide(7)"></span>
-                    <span class="indicator" onclick="goToSlide(8)"></span>
-                    <span class="indicator" onclick="goToSlide(9)"></span>
-                    <span class="indicator" onclick="goToSlide(10)"></span>
-                    <span class="indicator" onclick="goToSlide(11)"></span>
-                    <span class="indicator" onclick="goToSlide(12)"></span>
-                    <span class="indicator" onclick="goToSlide(13)"></span>
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <!-- 인디케이터는 JavaScript에서 동적으로 생성됩니다 -->
                 </div>
             </div>
         </section>
@@ -2089,8 +2070,30 @@
         // 이미지 캐러셀 관련 변수
         let currentSlide = 0;
         const carouselTrack = document.querySelector('.carousel-track');
-        const indicators = document.querySelectorAll('.indicator');
+        const indicatorsContainer = document.getElementById('carousel-indicators');
         const totalSlides = carouselTrack ? carouselTrack.children.length : 0;
+        let indicators = [];
+
+        // 인디케이터 동적 생성
+        function createIndicators() {
+            if (!indicatorsContainer || totalSlides === 0) return;
+
+            indicatorsContainer.innerHTML = '';
+            indicators = [];
+
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('span');
+                indicator.className = 'indicator';
+                indicator.onclick = () => goToSlide(i);
+                indicatorsContainer.appendChild(indicator);
+                indicators.push(indicator);
+            }
+
+            // 첫 번째 인디케이터를 활성화
+            if (indicators.length > 0) {
+                indicators[0].classList.add('active');
+            }
+        }
 
         // 캐러셀 슬라이드 변경
         function changeCarouselSlide(direction) {
@@ -2127,6 +2130,7 @@
 
         // 특정 슬라이드로 이동
         function goToSlide(index) {
+            if (index < 0 || index >= totalSlides) return;
             currentSlide = index;
             updateCarousel();
         }
@@ -2141,6 +2145,8 @@
 
         // 인디케이터 업데이트
         function updateIndicators() {
+            if (!indicators || indicators.length === 0) return;
+
             indicators.forEach((indicator, index) => {
                 if (index === currentSlide) {
                     indicator.classList.add('active');
@@ -2371,6 +2377,9 @@
 
         // 페이지 로드 시 초기 애니메이션
         window.addEventListener('load', animateOnScroll);
+
+        // 페이지 로드 시 캐러셀 인디케이터 초기화
+        window.addEventListener('load', createIndicators);
     </script>
 </body>
 </html>
