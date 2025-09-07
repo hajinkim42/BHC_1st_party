@@ -382,39 +382,67 @@
         .coming-soon-message {
             grid-column: 1 / -1;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: white;
             border-radius: 20px;
-            border: 2px dashed #7EDDF2;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
             margin-top: 20px;
+        }
+
+        .coming-soon-message:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border-color: #7EDDF2;
         }
 
         .coming-soon-message h2 {
             font-size: 2rem;
             font-weight: 700;
-            color: #7EDDF2;
+            color: #04738C;
             margin: 20px 0 0 0;
             line-height: 1.4;
             font-family: 'NanumSquareNeo', sans-serif;
         }
 
         .coming-soon-image {
-            text-align: center;
-            margin-bottom: 10px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
         }
 
         .coming-soon-image img {
-            width: 120px;
-            height: 120px;
-            border-radius: 15px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 3px solid #7EDDF2;
-            box-shadow: 0 4px 15px rgba(126, 221, 242, 0.3);
+            transition: transform 0.3s ease;
+            max-height: 300px;
+            object-fit: fill;
         }
 
         @media (max-width: 768px) {
+            .coming-soon-message {
+                padding: 15px;
+            }
+
             .coming-soon-message h2 {
                 font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon-message {
+                padding: 12px;
+            }
+
+            .coming-soon-message h2 {
+                font-size: 1.2rem;
             }
         }
 
@@ -2112,7 +2140,7 @@
                     </div> -->
                     <div class="coming-soon-message fade-in delay-7">
                         <div class="coming-soon-image">
-                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=200&h=200&fit=crop&crop=center" alt="기념품 이미지" />
+                            <img src="images/baloon.png" alt="기념품 이미지" />
                         </div>
                         <h2>더 많은 기념품이 추후 공개됩니다</h2>
                     </div>
