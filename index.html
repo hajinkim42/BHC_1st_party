@@ -362,6 +362,64 @@
             font-family: 'NanumSquareNeo', sans-serif;
         }
 
+        /* 선택형 기념품 스타일 */
+        .gift-choice {
+            max-width: 100%;
+        }
+
+        .choice-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .choice-header .gift-title {
+            font-size: 1.2rem;
+            color: #eb3572;
+            font-weight: 700;
+        }
+
+        .choice-options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .choice-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .choice-option .gift-image-wrapper {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 8px;
+        }
+
+        .choice-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #333;
+            font-family: 'NanumSquareNeo', sans-serif;
+            line-height: 1.2;
+        }
+
+        .choice-separator {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #7EDDF2;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            border: 2px solid #7EDDF2;
+            white-space: nowrap;
+        }
+
         .gift-image-wrapper.coming-soon {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             border: 2px dashed #7EDDF2;
@@ -696,69 +754,6 @@
             margin-top: 5px;
         }
 
-        /* 부스 안내 */
-        .booth-info {
-            background: #f8f9fa;
-            padding: 60px 20px;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
-        .booth-notice {
-            background: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 50px auto 0;
-        }
-
-        .notice-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .booth-notice h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .booth-notice p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .booth-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .booth-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .booth-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .booth-number {
-            background: linear-gradient(135deg, #7EDDF2, #5BC0DE);
-            color: white;
-            margin: 0 auto 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
 
         /* 오시는 길 */
         .location-info {
@@ -1249,7 +1244,6 @@
             .stats-container,
             .event-info,
             .timetable-container,
-            .booth-info,
             .location-info,
             .sponsors {
                 max-width: 95%;
@@ -1271,9 +1265,6 @@
                 padding: 35px 25px;
             }
 
-            .booth-info {
-                padding: 50px 20px;
-            }
 
             .sponsors {
                 padding: 50px 20px;
@@ -1358,6 +1349,26 @@
                 font-size: 1rem;
             }
 
+            /* 모바일 선택형 기념품 스타일 */
+            .choice-options {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .choice-separator {
+                font-size: 0.7rem;
+                padding: 3px 6px;
+            }
+
+            .choice-option .gift-image-wrapper {
+                width: 50px;
+                height: 50px;
+            }
+
+            .choice-label {
+                font-size: 0.7rem;
+            }
+
             /* 모바일 통계 스타일 */
             .stats-container {
                 padding: 60px 20px;
@@ -1427,15 +1438,6 @@
                 font-size: 1rem;
             }
 
-            .booth-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-top: 30px;
-            }
-
-            .booth-card {
-                padding: 20px 15px;
-            }
 
             .location-info {
                 max-width: 95%;
@@ -1692,9 +1694,6 @@
                 font-size: 0.9rem;
             }
 
-            .booth-info {
-                padding: 40px 15px;
-            }
 
             .sponsors {
                 padding: 40px 15px;
@@ -2027,17 +2026,6 @@
             </div>
         </section>
 
-        <!-- 부스 안내 -->
-        <section class="section booth-info">
-            <div class="schedule-content">
-                <h2 class="section-title fade-in">부스 안내</h2>
-                <div class="booth-notice fade-in">
-                    <div class="notice-icon scale-in delay-1">📢</div>
-                    <h3 class="fade-in delay-2">추후 공지 예정</h3>
-                    <p class="fade-in delay-3">다양한 부스와 프로그램이 준비될 예정입니다.<br>자세한 내용은 추후 공지해드리겠습니다.</p>
-                </div>
-            </div>
-        </section>
 
         <!-- 오시는 길 -->
         <section class="section">
@@ -2112,9 +2100,9 @@
                     </div>
                     <div class="gift-item fade-in delay-3">
                         <div class="gift-image-wrapper">
-                            <img src="images/gift/sausage.jpg" alt="목우촌 소세지" class="gift-image">
+                            <img src="images/gift/ham.png" alt="목우촌 햄" class="gift-image">
                         </div>
-                        <h3 class="gift-title">목우촌 소세지</h3>
+                        <h3 class="gift-title">목우촌 햄</h3>
                     </div>
                     <div class="gift-item fade-in delay-4">
                         <div class="gift-image-wrapper">
@@ -2122,25 +2110,69 @@
                         </div>
                         <h3 class="gift-title">목우촌 생생육포</h3>
                     </div>
-                    <!-- <div class="gift-item fade-in delay-5">
+                    <div class="gift-item fade-in delay-4">
                         <div class="gift-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=300&fit=crop&crop=center" alt="블루마마 빨대컵" class="gift-image">
+                            <img src="images/gift/comingsoon.png" alt="고어텍스 가방" class="gift-image">
                         </div>
-                        <h3 class="gift-title">블루마마 빨대컵</h3>
+                        <h3 class="gift-title">고어텍스 가방</h3>
                     </div>
-                    <div class="gift-item fade-in delay-6">
+                    <div class="gift-item fade-in delay-4">
                         <div class="gift-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop&crop=center" alt="바이오더마 크림" class="gift-image">
+                            <img src="images/gift/comingsoon.png" alt="오가본 세트" class="gift-image">
                         </div>
-                        <h3 class="gift-title">바이오더마 크림</h3>
-                    </div> -->
-                    <div class="coming-soon-message fade-in delay-7">
-                        <div class="coming-soon-image">
-                            <img src="images/baloon.png" alt="기념품 이미지" />
-                        </div>
-                        <h2>더 많은 기념품이 추후 공개됩니다</h2>
+                        <h3 class="gift-title">오가본 베스트 샤쉐 세트</h3>
                     </div>
-                </div>
+                    <div class="gift-item gift-choice fade-in delay-4">
+                        <div class="choice-options">
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/dish1.png" alt="블루마마 이유식 보관용기" class="gift-image">
+                                </div>
+                                <span class="choice-label">이유식 보관용기</span>
+                            </div>
+                            <div class="choice-separator">또는</div>
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/cup.png" alt="블루마마 빨대컵" class="gift-image">
+                                </div>
+                                <span class="choice-label">빨대컵</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gift-item gift-choice fade-in delay-4">
+                        <div class="choice-options">
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/cream.png" alt="바이오더마 크림" class="gift-image">
+                                </div>
+                                <span class="choice-label">크림</span>
+                            </div>
+                            <div class="choice-separator">또는</div>
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/comingsoon.png" alt="미정" class="gift-image">
+                                </div>
+                                <span class="choice-label">오일(9월 출시 예정)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gift-item gift-choice fade-in delay-4">
+                        <div class="choice-options">
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/comingsoon.png" alt="고어텍스 카드지갑" class="gift-image">
+                                </div>
+                                <span class="choice-label">고어텍스 카드지갑</span>
+                            </div>
+                            <div class="choice-separator">또는</div>
+                            <div class="choice-option">
+                                <div class="gift-image-wrapper">
+                                    <img src="images/gift/comingsoon.png" alt="산수유람 모자" class="gift-image">
+                                </div>
+                                <span class="choice-label">산수유람 모자</span>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </section>
 
