@@ -726,7 +726,7 @@
 
         .timetable-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 25px;
         }
 
@@ -740,12 +740,22 @@
             min-width: 120px;
             text-align: center;
             margin-right: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .timetable-activity {
             font-size: 1.1rem;
             font-weight: 600;
             color: #2c3e50;
+        }
+
+        .timetable-activity .course-info {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.3;
         }
 
         .timetable-description {
@@ -2012,7 +2022,10 @@
                     </div>
                     <div class="timetable-item slide-in-right delay-3">
                         <div class="timetable-time scale-in delay-4">09:40 ~ 13:10</div>
-                        <div class="timetable-activity fade-in delay-5">용마산 등산</div>
+                        <div class="timetable-activity fade-in delay-5">
+                            용마산 등산
+                            <div class="course-info">코스: 용마폭포공원 > 용마봉(정상) > 팔각정 > 용마폭포공원</div>
+                        </div>
                     </div>
                     <div class="timetable-item slide-in-left delay-4">
                         <div class="timetable-time scale-in delay-5">13:10 ~ 14:40</div>
